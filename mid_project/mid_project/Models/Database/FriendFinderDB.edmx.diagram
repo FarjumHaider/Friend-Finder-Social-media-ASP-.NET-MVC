@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7a310fd2569a44c5b4de3c0704d2dbbe" Name="Diagram1">
+        <EntityTypeShape EntityType="friend_finderModel.Admin" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="friend_finderModel.Applicant" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="friend_finderModel.Comment" Width="1.5" PointX="5.25" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="friend_finderModel.Following" Width="1.5" PointX="3" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="friend_finderModel.Follow" Width="1.5" PointX="3" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="friend_finderModel.Job" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="friend_finderModel.Message" Width="1.5" PointX="3" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="friend_finderModel.Post" Width="1.5" PointX="3" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="friend_finderModel.React" Width="1.5" PointX="5.25" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="friend_finderModel.Reply" Width="1.5" PointX="7.5" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="friend_finderModel.Request" Width="1.5" PointX="3" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="friend_finderModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="friend_finderModel.User" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
+        <AssociationConnector Association="friend_finderModel.FK_Admins_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="friend_finderModel.FK_Applicants_Jobs" ManuallyRouted="false" />
+        <AssociationConnector Association="friend_finderModel.FK_Applicants_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="friend_finderModel.FK_Comments_Posts" ManuallyRouted="false" />
+        <AssociationConnector Association="friend_finderModel.FK_Comments_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="friend_finderModel.FK_Replies_Comments" ManuallyRouted="false" />
+        <AssociationConnector Association="friend_finderModel.FK_Followings_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="friend_finderModel.FK_Followings_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="friend_finderModel.FK_Follows_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="friend_finderModel.FK_Follows_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="friend_finderModel.FK_Messages_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="friend_finderModel.FK_Messages_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="friend_finderModel.FK_Posts_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="friend_finderModel.FK_Reacts_Posts" ManuallyRouted="false" />
+        <AssociationConnector Association="friend_finderModel.FK_Reacts_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="friend_finderModel.FK_Replies_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="friend_finderModel.FK_Requests_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="friend_finderModel.FK_Requests_Users1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="friend_finderModel.Employee" Width="1.5" PointX="3" PointY="1" />
+        <AssociationConnector Association="friend_finderModel.FK_Employees_Users" />
+        <AssociationConnector Association="friend_finderModel.FK_Jobs_Users" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

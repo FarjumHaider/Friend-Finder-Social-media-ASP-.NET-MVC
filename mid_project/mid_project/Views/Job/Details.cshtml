@@ -1,0 +1,25 @@
+﻿@model mid_project.Models.Database.Job
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 " style=" margin-left: 300px; text-align: center;">
+            <h2>Job Title: @Model.Title</h2>
+            @foreach (var e in Model.User.Employees)
+            {
+                <h2>Posted By: @e.Name</h2>
+            }
+            <h2>Job Responsibility: @Model.Info</h2>
+            <h2>No. of Applicants: @Model.Applicants.Count()</h2>
+
+            <a class="btn btn-primary" href="/Job/Show">Back</a>
+        </div>
+    </div>
+</div> 

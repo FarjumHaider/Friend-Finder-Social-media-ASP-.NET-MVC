@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<br>
+<br>
+<br>
+<br>
+<div class="numbar">
+    <table align="center">
+        <tr>
+            <td>
+                <div class="card_1">
+                    <div class="">
+                        Normal User
+                    </div>
+                    <div class="">
+                        @ViewBag.User
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="card_2">
+                    <div class="">
+                        Business
+                    </div>
+                    <div class="">
+                        @ViewBag.Business
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="card_3">
+                    <div class="">
+                        Recruiter
+                    </div>
+                    <div class="">
+                        @ViewBag.Recruiter
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="card_4">
+                    <div class="">
+                        Job
+                    </div>
+                    <div class="">
+                        @ViewBag.Job
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="card_5">
+                    <div class="">
+                        Product
+                    </div>
+                    <div class="">
+                        @ViewBag.Product
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="card_6">
+                    <div class="">
+                        Order
+                    </div>
+                    <div class="">
+                        @ViewBag.Order
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

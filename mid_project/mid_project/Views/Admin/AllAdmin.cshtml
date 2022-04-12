@@ -1,0 +1,33 @@
+﻿@model List<mid_project.Models.Database.Admin>
+@{
+    ViewBag.Title = "AllAdmin";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<h2>AllAdmin</h2>
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>image</th>
+    </tr>
+
+    @foreach (var a in Model)
+    {
+        <tr>
+            <td>@a.Name</td>
+            <td>@a.Email</td>
+            <td>
+                <img src="@Url.Content(a.Image)" width="50" height="50"/>     
+            </td>
+
+            <td>
+                <a class="btn btn-primary" href="">Edit</a>
+                <a class="btn btn-success" href="">Delete</a>
+            </td>
+
+        </tr>
+    }
+</table>

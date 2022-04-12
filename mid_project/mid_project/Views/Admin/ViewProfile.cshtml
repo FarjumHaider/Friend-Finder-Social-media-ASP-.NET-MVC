@@ -1,0 +1,21 @@
+﻿@model mid_project.Models.Database.Admin
+@{
+    ViewBag.Title = "ViewProfile";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 " style=" margin-left: 300px; text-align: center;">
+            <img src="@Url.Content(Model.Image)" width="150" height="150" />
+            <h2>Name: @Model.Name</h2>
+            <h2>Email: @Model.Email</h2>
+            <a class="btn btn-primary" href="/Admin/EditProfile/@Model.Id">Edit profile</a>
+            <a class="btn btn-success" href="/Admin/ChangePassword/@Model.Id">Change password</a>
+        </div>
+    </div>
+</div> 

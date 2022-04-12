@@ -1,0 +1,71 @@
+﻿@model List<mid_project.Models.Database.Employee>
+@{
+    ViewBag.Title = "Show";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+<center>
+    <form action="/Employee/Show" method="post">
+    <input type="text" class="form-control" name="name" placeholder="Search..." style='display:inline-block; ' />
+    <input type="submit" value="Search" class="btn btn-primary" style='display:inline-block;' />
+</form>
+<h4 style="color:red;">@ViewBag.error</h4>
+</center>
+
+
+<br />
+<table class="table table-bordered">
+
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>image</th>
+        <th>Joining date</th>
+        <th>Status</th>
+    </tr>
+
+    @foreach (var e in Model)
+    {
+        if (e.Status != "Pending")
+        {
+            <tr>
+                <td>@e.Name</td>
+                <td>@e.Email</td>
+                <td>
+                    <img src="@Url.Content(e.Image)" width="50" height="50" />
+                </td>
+                <td>@e.joiningDate.ToString("MM/dd/yyyy")</td>
+
+                    @if (e.Status.Equals("Active"))
+                    {
+                        <td style="color:green;">@e.Status</td>
+                        
+                    }
+                    else if (e.Status.Equals("Deactive"))
+                    {
+                        <td  style="color:red;">@e.Status</td>
+                    }
+
+                <td>
+                    <a class="btn btn-primary" href="/Employee/Edit/@e.Id">Edit</a>
+                    <a class="btn btn-danger" href="/Employee/Delete/@e.Id">Delete</a>
+                    <a class="btn btn-info" href="/Employee/Details/@e.Id">Details</a>
+                    @if (e.Status.Equals("Active"))
+                    {
+                        <a class="btn btn-danger" href="/Employee/Deactive/@e.Id">Deactive</a>
+                    }
+                    else if (e.Status.Equals("Deactive"))
+                    {
+                        <a class="btn btn-success" href="/Employee/Active/@e.Id">Active</a>
+                    }
+                </td>
+
+            </tr>
+        }
+
+    }
+</table>

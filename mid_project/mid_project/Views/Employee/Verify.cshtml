@@ -1,0 +1,42 @@
+﻿@model List<mid_project.Models.Database.Employee>
+@{
+    ViewBag.Title = "Verify";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>image</th>
+        <th>Joining date</th>
+        <th>Status</th>
+    </tr>
+
+    @foreach (var e in Model)
+    {
+        if (e.Status.Equals("Pending"))
+        {
+            <tr>
+                <td>@e.Name</td>
+                <td>@e.Email</td>
+                <td>
+                    <img src="@Url.Content(e.Image)" width="50" height="50" />
+                </td>
+                <td>@e.joiningDate.ToString("yyyy-MM-dd")</td>
+                <td>@e.Status</td>
+                <td>
+                    <a class="btn btn-primary" href="/Employee/ConfirmRequest/@e.Id">Confirm</a>
+                    <a class="btn btn-success" href="/Employee/VerifyDelete/@e.Id">Delete</a>
+                </td>
+
+            </tr>
+        }
+
+    }
+</table>

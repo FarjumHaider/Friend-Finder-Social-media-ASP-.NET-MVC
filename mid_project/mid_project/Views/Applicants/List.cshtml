@@ -1,0 +1,50 @@
+﻿@model List<mid_project.Models.Database.Applicant>
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Serial No.</th>
+        <th>image</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Joining date</th>
+    </tr>
+    @{
+        int i = 0;
+
+        foreach (var a in Model)
+        {
+            i++;
+            <tr>
+                @foreach (var e in a.User.Employees)
+                {
+
+                    <td>@i</td>
+                    <td>
+                        <img src="@Url.Content(e.Image)" width="50" height="50" />
+                    </td>
+                    <td>@e.Name</td>
+                    <td>@e.Email</td>
+                    <td>@e.joiningDate.ToString("yyyy-MM-dd")</td>
+                    <td>
+                        <a class="btn btn-success" href="/Applicants/Delete/@e.User_id">Delete</a>
+                        <a class="btn btn-primary" href="/Applicants/Details/@e.Id">Details</a>
+                    </td>
+
+                }
+
+
+
+            </tr>
+
+
+        }
+    }
+</table>

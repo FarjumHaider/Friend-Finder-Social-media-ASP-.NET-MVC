@@ -1,0 +1,65 @@
+﻿@model List<mid_project.Models.Database.Employee>
+
+@{
+    ViewBag.Title = "Report";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+
+<br />
+<br />
+<br />
+<br />
+
+<center>
+    <form action="/Employee/Report" method="post">
+        <input type="date" class="form-control" name="fromDate" placeholder="From date..." style='display:inline-block; ' />
+        <input type="date" class="form-control" name="toDate" placeholder="To date..." style='display:inline-block; ' />
+        <input type="submit" value="Search" class="btn btn-primary" style='display:inline-block;' />
+    </form>
+    <h4 style="color:red;">@ViewBag.error</h4>
+</center>
+
+
+
+<br />
+<table class="table table-bordered">
+
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>image</th>
+        <th>Joining date</th>
+        <th>Status</th>
+    </tr>
+
+    @foreach (var e in Model)
+    {
+        if (e.Status != "Pending")
+        {
+            <tr>
+                <td>@e.Name</td>
+                <td>@e.Email</td>
+                <td>
+                    <img src="@Url.Content(e.Image)" width="50" height="50" />
+                </td>
+                <td>@e.joiningDate.ToString("MM/dd/yyyy")</td>
+
+                @if (e.Status.Equals("Active"))
+                {
+                    <td style="color:green;">@e.Status</td>
+
+                }
+                else if (e.Status.Equals("Deactive"))
+                {
+                    <td style="color:red;">@e.Status</td>
+                }
+
+
+
+            </tr>
+        }
+
+    }
+</table>
+

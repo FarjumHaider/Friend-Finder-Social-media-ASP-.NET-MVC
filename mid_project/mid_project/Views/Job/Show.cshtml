@@ -1,0 +1,54 @@
+﻿@model List<mid_project.Models.Database.Job>
+@{
+    ViewBag.Title = "Show";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+
+<center>
+    <form action="/Job/Show" method="post">
+        <input type="text" class="form-control" name="type" placeholder="Search..." style='display:inline-block; ' />
+        <input type="submit" value="Search" class="btn btn-primary" style='display:inline-block;' />
+    </form>
+    <h4>@ViewBag.error</h4>
+</center>
+
+
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>Posted By</th>
+        <th>Title</th>
+        <th>Type</th>
+        <th>Location</th>
+        <th>No. of Applicants</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var j in Model)
+    {
+        <tr>
+
+            @foreach (var e in j.User.Employees)
+            {
+                <td>@e.Name</td>
+            }
+            <td>@j.Title</td>
+            <td>@j.Type</td>
+            <td>@j.Location</td>
+            <td>@j.Applicants.Count</td>
+            <td>
+                <a class="btn btn-success" href="/Job/Delete/@j.Id">Delete</a>
+                <a class="btn btn-success" href="/Job/Details/@j.Id">Details</a>
+                <a class="btn btn-primary" href="/Applicants/List/@j.Id">Applicants</a>
+            </td>
+        </tr>
+    }
+
+
+</table>

@@ -1,0 +1,80 @@
+﻿@model List<mid_project.Models.Database.Post>
+@{
+    ViewBag.Title = "AllPost";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            @foreach (var p in Model)
+            {
+                foreach (var u in p.User.Employees)
+                {
+                    <div>
+                        <h4><img src="@Url.Content(u.Image)" width="40" height="40" class="img-circle" /> <span style="color: #63639d; ">@u.Name </span> &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-size: 15px; "> @p.Date.ToString("dd MMM yyyy hh:mm tt") </span></h4>
+
+                    </div>
+                }
+                <div>
+                    @if (p.User_Post != null)
+                    {
+                        <div>@p.User_Post</div>
+                    }
+
+
+                    @if (p.Image != null)
+                    {
+                        <div>
+                            <img src="@Url.Content(p.Image)" width="440" height="440" />
+                        </div>
+                    }
+                    @**@
+
+                </div>
+                @*<br />*@
+                <div>
+                    @foreach (var c in p.Comments)
+                    {
+                        <div style="font-size: 20px; margin-left: 30px;">
+                            <span>@c.Cmnt</span>
+                            <span style="font-size: 10px;">@c.Date.ToString("dd MMM yyyy hh:mm tt")</span>
+                        </div>
+                        <form action="/Admin/Reply" method="POST">
+                            <div>
+                                @foreach (var r in c.Replies)
+                                {
+                                    <div style="font-size: 20px; margin-left: 60px;">
+                                        <span>@r.Reply_Cmnt</span>
+                                        <span style="font-size: 10px;">@r.Date.ToString("dd MMM yyyy hh:mm tt")</span>
+                                    </div>
+                                }
+                                <input type="hidden" placeholder="Id" name="C_Id" value="@c.Id" class="form-control" />
+                                <input style="font-size: 20px; margin-left: 60px;" placeholder="Reply comment" name="reply_comment" type="text" />
+                                <input type="submit" value="Reply" class="btn btn-primary" />
+                            </div>
+                        </form>
+
+                    }
+                    <br />
+                    <form action="/Admin/Comment" method="POST">
+                        <input type="hidden" placeholder="Id" name="P_Id" value="@p.Id" class="form-control" />
+                        <input style="font-size: 20px; margin-left: 30px;" placeholder="New comment" name="new_comment" type="text" />
+                        <input type="submit" value="Comment" class="btn btn-primary" />
+                    </form>
+
+                </div>
+                <br />
+                <br />
+
+            }
+        </div>
+
+    </div>
+</div>
+

@@ -1,0 +1,19 @@
+﻿@model mid_project.Models.Database.Employee
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+<br />
+<br />
+<br />
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 " style=" margin-left: 300px; text-align: center;">
+            <img src="@Url.Content(Model.Image)" width="150" height="150" />
+            <h2>Name: @Model.Name</h2>
+            <h2>Email: @Model.Email</h2>
+            <h2>Joining Date: @Model.joiningDate.ToString("yyyy-MM-dd")</h2>
+        </div>
+    </div>
+</div> 
